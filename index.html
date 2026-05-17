@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aidan Raynor | Architectural Drafting Portfolio</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 16px;
+      }
+
+      .brand span {
+        display: block;
+        color: #64748b;
+        font-size: 13px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+      }
+
+      .nav-links a {
+        color: #475569;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: #0891b2;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #0f172a;
+        color: white;
+        padding: 13px 20px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background: #0891b2;
+      }
+
+      .btn.secondary {
+        background: white;
+        color: #0f172a;
+        border: 1px solid #cbd5e1;
+      }
+
+      .section {
+        padding: 90px 24px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .white {
+        background: white;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-block;
+        background: white;
+        color: #0e7490;
+        border: 1px solid #bae6fd;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-weight: 800;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 6vw, 76px);
+        line-height: 0.95;
+        margin: 0;
+        letter-spacing: -3px;
+      }
+
+      h2 {
+        font-size: clamp(34px, 4vw, 52px);
+        line-height: 1;
+        margin: 0;
+        letter-spacing: -2px;
+      }
+
+      .hero p,
+      .about-text p,
+      .section-heading p,
+      .contact-card p,
+      .project-detail-header p {
+        color: #475569;
+        line-height: 1.7;
+        font-size: 18px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 14px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+
+      .hero-card {
+        background: white;
+        padding: 12px;
+        border-radius: 34px;
+        box-shadow: 0 30px 70px rgba(15, 23, 42, 0.15);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 470px;
+        object-fit: cover;
+        border-radius: 26px;
+        display: block;
+      }
+
+      .hero-click {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .hero-click img {
+        transition: transform 0.3s ease;
+      }
+
+      .hero-click:hover img {
+        transform: scale(1.03);
+      }
+
+      .home-click-label {
+        position: absolute;
+        left: 28px;
+        bottom: 28px;
+        background: rgba(15, 23, 42, 0.9);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 60px;
+      }
+
+      .eyebrow {
+        color: #0891b2;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 900;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+
+      .eyebrow.light {
+        color: #cffafe;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 30px;
+      }
+
+      .small-card {
+        border: 1px solid #e2e8f0;
+        border-radius: 24px;
+        padding: 22px;
+        background: white;
+      }
+
+      .small-card h3 {
+        margin: 0 0 8px;
+      }
+
+      .small-card p {
+        font-size: 14px;
+        margin: 0;
+        color: #64748b;
+      }
+
+      .skills-box {
+        background: #0f172a;
+        color: white;
+        border-radius: 34px;
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        max-width: 650px;
+      }
+
+      .skill-tags span {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .section-heading p {
+        max-width: 520px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        height: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 70px rgba(15, 23, 42, 0.15);
+      }
+
+      .project-image-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .click-label {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        background: rgba(15, 23, 42, 0.9);
+        color: white;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+      }
+
+      .project-card div.project-info {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .project-card p {
+        color: #0891b2;
+        font-weight: 900;
+        margin: 0 0 8px;
+      }
+
+      .project-card h3 {
+        margin: 0 0 10px;
+        font-size: 24px;
+      }
+
+      .project-card span {
+        display: block;
+        color: #64748b;
+        line-height: 1.6;
+        flex: 1;
+      }
+
+      .project-card strong {
+        display: inline-block;
+        margin-top: 20px;
+        background: #0891b2;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-size: 14px;
+        width: fit-content;
+      }
+
+      .popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.82);
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .popup:target {
+        display: flex;
+      }
+
+      .popup-box {
+        width: min(1050px, 100%);
+        max-height: 92vh;
+        overflow-y: auto;
+        background: white;
+        border-radius: 34px;
+        padding: 24px;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+        position: relative;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        background: #0f172a;
+        color: white;
+        display: grid;
+        place-items: center;
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .popup-close:hover {
+        background: #0891b2;
+      }
+
+      .popup-image {
+        width: 100%;
+        height: 620px;
+        object-fit: contain;
+        background: #f1f5f9;
+        border-radius: 24px;
+        border: 1px solid #e2e8f0;
+        display: block;
+      }
+
+      .popup-content {
+        padding: 24px 6px 6px;
+      }
+
+      .popup-content p {
+        color: #0891b2;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 13px;
+        margin: 0 0 10px;
+      }
+
+      .popup-content h2 {
+        margin-bottom: 12px;
+      }
+
+      .popup-content span {
+        color: #475569;
+        line-height: 1.7;
+        font-size: 17px;
+        display: block;
+        max-width: 800px;
+      }
+
+      .popup-buttons {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .project-detail {
+        scroll-margin-top: 80px;
+      }
+
+      .project-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 30px;
+        margin-bottom: 34px;
+      }
+
+      .project-detail-header p {
+        max-width: 760px;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .image-grid a {
+        display: block;
+        border-radius: 26px;
+        overflow: hidden;
+      }
+
+      .image-grid img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+        border-radius: 26px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .image-grid a:hover img {
+        transform: scale(1.04);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 28px;
+      }
+
+      .contact-card {
+        border-radius: 34px;
+        padding: 40px;
+      }
+
+      .blue-card {
+        background: #0891b2;
+        color: white;
+      }
+
+      .blue-card p {
+        color: #ecfeff;
+      }
+
+      .contact-details {
+        margin-top: 30px;
+        display: grid;
+        gap: 14px;
+        font-weight: 800;
+      }
+
+      .white-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+      }
+
+      .white-card h3 {
+        font-size: 28px;
+        margin: 0;
+      }
+
+      .note-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 30px 0;
+      }
+
+      .note-grid div {
+        border: 1px solid #e2e8f0;
+        border-radius: 22px;
+        padding: 20px;
+      }
+
+      .note-grid p {
+        color: #0f172a;
+        font-weight: 900;
+        margin: 0 0 8px;
+      }
+
+      .note-grid span {
+        color: #64748b;
+        line-height: 1.5;
+      }
+
+      .footer {
+        background: white;
+        border-top: 1px solid #e2e8f0;
+        padding: 26px 24px;
+        color: #64748b;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-grid,
+        .about-grid,
+        .contact-grid,
+        .image-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cards,
+        .note-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-box,
+        .section-heading,
+        .project-detail-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-card img {
+          height: 360px;
+        }
+
+        .image-grid img {
+          height: 280px;
+        }
+
+        .popup-image {
+          height: 520px;
+        }
+
+        h1 {
+          letter-spacing: -2px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .section {
+          padding: 60px 18px;
+        }
+
+        .nav {
+          padding: 14px 18px;
+        }
+
+        .brand strong {
+          font-size: 14px;
+        }
+
+        .brand span {
+          font-size: 11px;
+        }
+
+        .nav .btn {
+          padding: 10px 14px;
+          font-size: 13px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 44px;
+        }
+
+        h2 {
+          font-size: 34px;
+          letter-spacing: -1px;
+        }
+
+        .hero p,
+        .about-text p,
+        .section-heading p,
+        .contact-card p,
+        .project-detail-header p {
+          font-size: 16px;
+        }
+
+        .hero-card img,
+        .project-card img,
+        .image-grid img {
+          height: 240px;
+        }
+
+        .home-click-label {
+          left: 20px;
+          bottom: 20px;
+          font-size: 12px;
+          padding: 10px 14px;
+        }
+
+        .popup {
+          padding: 12px;
+        }
+
+        .popup-box {
+          padding: 16px;
+          border-radius: 24px;
+        }
+
+        .popup-image {
+          height: 360px;
+        }
+
+        .popup-close {
+          top: 12px;
+          right: 12px;
+        }
+
+        .contact-card,
+        .skills-box {
+          padding: 26px;
+          border-radius: 26px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="#home" class="brand">
+          <strong>Aidan Raynor</strong>
+          <span>Architectural Drafting Portfolio</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a href="#contact" class="btn">Contact Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="section hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">Portfolio for architectural drafting opportunities</div>
+
+            <h1>Clean drafting. Clear drawings. Strong visual presentation.</h1>
+
+            <p>
+              I create architectural drawings, concept layouts, elevations, and
+              visual presentations that help turn building ideas into organized,
+              professional design documents.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#gallery" class="btn">View My Work</a>
+              <a href="#about" class="btn secondary">About Me</a>
+            </div>
+          </div>
+
+          <a href="#home-popup" class="hero-card hero-click">
+            <img
+              src="images/Breakers.png"
+              alt="Homepage architectural rendering"
+            />
+            <div class="home-click-label">Click to enlarge</div>
+          </a>
+        </div>
+      </section>
+
+      <section id="about" class="section white">
+        <div class="container about-grid">
+          <div>
+            <div class="eyebrow">About</div>
+            <h2>Detail-focused drafting with a modern design eye.</h2>
+          </div>
+
+          <div class="about-text">
+            <p>
+              I’m an architectural drafting candidate building a portfolio around
+              clean presentation, accurate drawings, and practical design
+              communication. My goal is to support architecture, construction,
+              and design teams with reliable drafting work and strong attention
+              to detail.
+            </p>
+
+            <p>
+              This portfolio highlights sample drawings, exterior concepts, floor
+              plan organization, and visual design work. Replace this section
+              later with your real background, school/program, software
+              experience, certifications, and job goals.
+            </p>
+
+            <div class="cards">
+              <div class="small-card">
+                <h3>Precise</h3>
+                <p>Clean dimensions and layout logic.</p>
+              </div>
+
+              <div class="small-card">
+                <h3>Practical</h3>
+                <p>Designs grounded in real spaces.</p>
+              </div>
+
+              <div class="small-card">
+                <h3>Organized</h3>
+                <p>Clear sheets and visual hierarchy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container skills-box">
+          <div>
+            <div class="eyebrow light">Skills</div>
+            <h2>Software & drafting strengths</h2>
+          </div>
+
+          <div class="skill-tags">
+            <span>AutoCAD</span>
+            <span>Revit</span>
+            <span>SketchUp</span>
+            <span>Floor Plans</span>
+            <span>Elevations</span>
+            <span>Construction Drawings</span>
+            <span>3D Visualization</span>
+            <span>Space Planning</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section white">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">Gallery</div>
+              <h2>Selected work samples</h2>
+            </div>
+
+            <p>
+              Click a project image to enlarge it. You can also jump to the full
+              project section from the popup.
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <a href="#popup-one" class="project-card">
+              <div class="project-image-wrap">
+                <img src="images/cabin-house.png" alt="Wood cabin facade" />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Exterior Elevation</p>
+                <h3>Wood Cabin Facade</h3>
+                <span>
+                  Residential cabin exterior concept with wood, stone, and
+                  natural mountain-inspired materials.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+
+            <a href="#popup-two" class="project-card">
+              <div class="project-image-wrap">
+                <img src="images/Front View.png" alt="Residential villa" />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Exterior Elevations</p>
+                <h3>Residential Villa</h3>
+                <span>
+                  Residential villa design focused on exterior form, clean
+                  presentation, and architectural detail.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+
+            <a href="#popup-three" class="project-card">
+              <div class="project-image-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                  alt="Commercial build out"
+                />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Drafting Package</p>
+                <h3>Commercial Build-Out</h3>
+                <span>
+                  Interior planning concept for a small commercial space with
+                  clean lines and functional circulation.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+
+            <a href="#popup-four" class="project-card">
+              <div class="project-image-wrap">
+                <img src="images/Retail.png" alt="Office retail building" />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Drafting Package</p>
+                <h3>Office / Retail Building</h3>
+                <span>
+                  Commercial exterior concept with storefront planning, facade
+                  organization, and presentation views.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+
+            <a href="#popup-five" class="project-card">
+              <div class="project-image-wrap">
+                <img src="images/Williams.png" alt="Residential building" />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Exterior Elevations</p>
+                <h3>Residential Building</h3>
+                <span>
+                  Residential building concept focused on exterior massing,
+                  window layout, and clean architectural presentation.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+
+            <a href="#popup-six" class="project-card">
+              <div class="project-image-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                  alt="Residential building"
+                />
+                <div class="click-label">Click to enlarge</div>
+              </div>
+              <div class="project-info">
+                <p>Exterior Elevations</p>
+                <h3>Residential Building</h3>
+                <span>
+                  Additional residential drafting project with exterior views,
+                  design layout, and presentation-ready visuals.
+                </span>
+                <strong>View Larger Image</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-one" class="section project-detail">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Wood Cabin Facade</h2>
+              <p>
+                Residential cabin exterior concept with wood, stone, and natural
+                mountain-inspired materials.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-one-a">
+              <img src="images/Front Cabin.png" alt="Wood Cabin facade image 1" />
+            </a>
+            <a href="#detail-one-b">
+              <img src="images/Exterior Cabin.png" alt="Exterior Patio image 2" />
+            </a>
+            <a href="#detail-one-c">
+              <img src="images/Exterior View.png" alt="Exterior View image 3" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-two" class="section project-detail white">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Residential Villa</h2>
+              <p>
+                Residential villa design focused on exterior form, clean
+                presentation, and architectural detail.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-two-a">
+              <img src="images/Front View.png" alt="Residential villa image 1" />
+            </a>
+            <a href="#detail-two-b">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential villa image 2"
+              />
+            </a>
+            <a href="#detail-two-c">
+              <img
+                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential villa image 3"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-three" class="section project-detail">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Commercial Build-Out</h2>
+              <p>
+                Interior planning concept for a small commercial space with
+                clean lines and functional circulation.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-three-a">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Commercial build out image 1"
+              />
+            </a>
+            <a href="#detail-three-b">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Commercial build out image 2"
+              />
+            </a>
+            <a href="#detail-three-c">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                alt="Commercial build out image 3"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-four" class="section project-detail white">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Office / Retail Building</h2>
+              <p>
+                Commercial exterior concept with storefront planning, facade
+                organization, and presentation views.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-four-a">
+              <img src="images/Retail.png" alt="Office retail building image 1" />
+            </a>
+            <a href="#detail-four-b">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Office retail building image 2"
+              />
+            </a>
+            <a href="#detail-four-c">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                alt="Office retail building image 3"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-five" class="section project-detail">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Residential Building</h2>
+              <p>
+                Residential building concept focused on exterior massing, window
+                layout, and clean architectural presentation.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-five-a">
+              <img src="images/Front Yard.png" alt="Residential building image 1" />
+            </a>
+            <a href="#detail-five-b">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential building image 2"
+              />
+            </a>
+            <a href="#detail-five-c">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential building image 3"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-six" class="section project-detail white">
+        <div class="container">
+          <div class="project-detail-header">
+            <div>
+              <div class="eyebrow">Project Gallery</div>
+              <h2>Residential Building</h2>
+              <p>
+                Additional residential drafting project with exterior views,
+                design layout, and presentation-ready visuals.
+              </p>
+            </div>
+
+            <a href="#gallery" class="btn secondary">Back to Gallery</a>
+          </div>
+
+          <div class="image-grid">
+            <a href="#detail-six-a">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential building image 1"
+              />
+            </a>
+            <a href="#detail-six-b">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential building image 2"
+              />
+            </a>
+            <a href="#detail-six-c">
+              <img
+                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
+                alt="Residential building image 3"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact-grid">
+          <div class="contact-card blue-card">
+            <div class="eyebrow light">Contact</div>
+            <h2>Let’s connect.</h2>
+
+            <p>
+              I’m currently looking for architectural drafting opportunities and
+              would be happy to share more work samples, discuss my experience,
+              or schedule an interview.
+            </p>
+
+            <div class="contact-details">
+              <div>Email: aidan.raynor2005@gmail.com</div>
+              <div>Phone: Phone number goes here</div>
+              <div>Location: Fort Lauderdale, FL</div>
+            </div>
+          </div>
+
+          <div class="contact-card white-card">
+            <h3>Portfolio note</h3>
+
+            <p>
+              This simple website is easy to upload because it only uses one HTML
+              file. Replace the images, update the text, and upload the folder to
+              Netlify Drop.
+            </p>
+
+            <div class="note-grid">
+              <div>
+                <p>Resume Ready</p>
+                <span>Add a downloadable PDF resume button here.</span>
+              </div>
+
+              <div>
+                <p>Project Sheets</p>
+                <span>Upload CAD drawings, renderings, and school projects.</span>
+              </div>
+            </div>
+
+            <a href="mailto:aidan.raynor2005@gmail.com" class="btn">Email Me</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 Aidan Raynor. Architectural Drafting Portfolio.</p>
+        <p>Designed for clean presentation and job applications.</p>
+      </div>
+    </footer>
+
+    <div id="home-popup" class="popup">
+      <div class="popup-box">
+        <a href="#home" class="popup-close">×</a>
+        <img class="popup-image" src="images/Breakers.png" alt="Homepage architectural rendering enlarged" />
+        <div class="popup-content">
+          <p>Featured Rendering</p>
+          <h2>Architectural Homepage Rendering</h2>
+          <span>
+            A polished exterior rendering used as the featured visual for my architectural drafting portfolio.
+          </span>
+          <div class="popup-buttons">
+            <a href="#home" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-one" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="images/cabin-house.png" alt="Wood cabin facade large" />
+        <div class="popup-content">
+          <p>Exterior Elevation</p>
+          <h2>Wood Cabin Facade</h2>
+          <span>Residential cabin exterior concept with wood, stone, and natural mountain-inspired materials.</span>
+          <div class="popup-buttons">
+            <a href="#project-one" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-two" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="images/Front View.png" alt="Residential villa large" />
+        <div class="popup-content">
+          <p>Exterior Elevations</p>
+          <h2>Residential Villa</h2>
+          <span>Residential villa design focused on exterior form, clean presentation, and architectural detail.</span>
+          <div class="popup-buttons">
+            <a href="#project-two" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-three" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Commercial build out large" />
+        <div class="popup-content">
+          <p>Drafting Package</p>
+          <h2>Commercial Build-Out</h2>
+          <span>Interior planning concept for a small commercial space with clean lines and functional circulation.</span>
+          <div class="popup-buttons">
+            <a href="#project-three" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-four" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="images/Retail.png" alt="Office retail building large" />
+        <div class="popup-content">
+          <p>Drafting Package</p>
+          <h2>Office / Retail Building</h2>
+          <span>Commercial exterior concept with storefront planning, facade organization, and presentation views.</span>
+          <div class="popup-buttons">
+            <a href="#project-four" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-five" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="images/Williams.png" alt="Residential building large" />
+        <div class="popup-content">
+          <p>Exterior Elevations</p>
+          <h2>Residential Building</h2>
+          <span>Residential building concept focused on exterior massing, window layout, and clean architectural presentation.</span>
+          <div class="popup-buttons">
+            <a href="#project-five" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-six" class="popup">
+      <div class="popup-box">
+        <a href="#gallery" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+        <div class="popup-content">
+          <p>Exterior Elevations</p>
+          <h2>Residential Building</h2>
+          <span>Additional residential drafting project with exterior views, design layout, and presentation-ready visuals.</span>
+          <div class="popup-buttons">
+            <a href="#project-six" class="btn">View Full Project</a>
+            <a href="#gallery" class="btn secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="detail-one-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-one" class="popup-close">×</a>
+        <img class="popup-image" src="images/Front Cabin.png" alt="Wood cabin facade large" />
+      </div>
+    </div>
+
+    <div id="detail-one-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-one" class="popup-close">×</a>
+        <img class="popup-image" src="images/Exterior Cabin.png" alt="Exterior cabin large" />
+      </div>
+    </div>
+
+    <div id="detail-one-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-one" class="popup-close">×</a>
+        <img class="popup-image" src="images/Exterior View.png" alt="Exterior view large" />
+      </div>
+    </div>
+
+    <div id="detail-two-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-two" class="popup-close">×</a>
+        <img class="popup-image" src="images/Front View.png" alt="Residential villa large" />
+      </div>
+    </div>
+
+    <div id="detail-two-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-two" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Residential villa large" />
+      </div>
+    </div>
+
+    <div id="detail-two-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-two" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Residential villa large" />
+      </div>
+    </div>
+
+    <div id="detail-three-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-three" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Commercial build out large" />
+      </div>
+    </div>
+
+    <div id="detail-three-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-three" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Commercial build out large" />
+      </div>
+    </div>
+
+    <div id="detail-three-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-three" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Commercial build out large" />
+      </div>
+    </div>
+
+    <div id="detail-four-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-four" class="popup-close">×</a>
+        <img class="popup-image" src="images/Retail.png" alt="Office retail building large" />
+      </div>
+    </div>
+
+    <div id="detail-four-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-four" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Office retail building large" />
+      </div>
+    </div>
+
+    <div id="detail-four-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-four" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Office retail building large" />
+      </div>
+    </div>
+
+    <div id="detail-five-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-five" class="popup-close">×</a>
+        <img class="popup-image" src="images/Front Yard.png" alt="Residential building large" />
+      </div>
+    </div>
+
+    <div id="detail-five-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-five" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+      </div>
+    </div>
+
+    <div id="detail-five-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-five" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+      </div>
+    </div>
+
+    <div id="detail-six-a" class="popup">
+      <div class="popup-box">
+        <a href="#project-six" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+      </div>
+    </div>
+
+    <div id="detail-six-b" class="popup">
+      <div class="popup-box">
+        <a href="#project-six" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+      </div>
+    </div>
+
+    <div id="detail-six-c" class="popup">
+      <div class="popup-box">
+        <a href="#project-six" class="popup-close">×</a>
+        <img class="popup-image" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Residential building large" />
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        if (window.location.hash) {
+          history.replaceState(null, null, window.location.pathname);
+          window.scrollTo(0, 0);
+        }
+      });
+    </script>
+  </body>
+</html>
